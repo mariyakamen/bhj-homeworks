@@ -1,11 +1,13 @@
 function click(event) {
   for (const each of document.getElementsByClassName("menu_sub")) {
+    if (each === event.target.parentElement.querySelector(".menu_sub"))
+      continue;
     each.classList.remove("menu_active");
   }
 
   event.target.parentElement
     .querySelector(".menu_sub")
-    .classList.add("menu_active");
+    .classList.toggle("menu_active");
 
   return false;
 }
